@@ -1,0 +1,9 @@
+{
+  "name": "rudinengineer/ci4-orm",
+  "description": "Simple CI4 ORM",
+  "autoload": {
+    "psr-4": {
+      "Ci4ORM\\": "src/"
+    }
+  }
+}
