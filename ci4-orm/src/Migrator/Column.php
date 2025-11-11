@@ -44,7 +44,7 @@ class Column {
     /**
      * @method $this nullable(bool $value = true) Allow NULL values to be inserted into the column
      */
-    public function nullable(bool $value = true) {
+    public function nullable($value = true) {
         $this->blueprint->field[$this->name]['null'] = $value;
     }
 
@@ -59,7 +59,7 @@ class Column {
     /**
      * @method $this default(mixed $value) Specify a "default" value for the column
      */
-    public function default(mixed $value) {
+    public function default($value) {
         $this->blueprint->field[$this->name]['default'] = $value;
     }
 }
