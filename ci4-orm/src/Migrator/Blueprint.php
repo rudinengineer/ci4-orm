@@ -492,7 +492,6 @@ class Blueprint {
      * Add nullable creation and update timestampTz columns to the table.
      *
      * @param  int|null  $precision (default: null)
-     * @return \Illuminate\Support\Collection<int, \Illuminate\Database\Schema\ColumnDefinition>
      */
     public function timestampsTz($precision = null) {
         $this->field['created_at'] = [
@@ -508,6 +507,72 @@ class Blueprint {
             'null' => true,
             'default' => null
         ];
+    }
+
+    /**
+     * Add creation and update datetime columns to the table.
+     *
+     * @param  int|null  $precision (default: null)
+     */
+    public function datetimes($precision = null) {
+        $this->field['created_at'] = [
+            'type' => 'DATETIME',
+            'precision' => $precision,
+            'null' => true,
+            'default' => null
+        ];
+
+        $this->field['updated_at'] = [
+            'type' => 'DATETIME',
+            'precision' => $precision,
+            'null' => true,
+            'default' => null
+        ];
+    }
+
+    /**
+     * Add a "deleted at" timestamp for the table.
+     *
+     * @param  string|null  $column (default: 'deleted_at')
+     * @param  int|null  $precision (default: null)
+     */
+    public function softDeletes($column = 'deleted_at', $precision = null) {
+        $this->timestamp($column, $precision)->nullable();
+    }
+
+    /**
+     * Add a "deleted at" timestampTz for the table.
+     *
+     * @param  string|null  $column (default: 'deleted_at')
+     * @param  int|null  $precision (default: null)
+     */
+    public function softDeletesTz($column = 'deleted_at', $precision = null) {
+        $this->timestampTz($column, $precision)->nullable();
+    }
+
+    /**
+     * Add a "deleted at" datetime column to the table.
+     *
+     * @param  string|null  $column (default: 'deleted_at')
+     * @param  int|null  $precision (default: null)
+     */
+    public function softDeletesDatetime($column = 'deleted_at', $precision = null) {
+        $this->dateTime($column, $precision)->nullable();
+    }
+
+    /**
+     * Create a new year column on the table.
+     *
+     * @param  string  $column
+     * @return Ci4ORM\Migrator\Column
+     */
+    public function year($column): Column {
+        $columns = new Column($column, $this);
+        $this->field[$column] = [
+            'type' => 'YEAR'
+        ];
+
+        return $columns;
     }
 
     public function execute() {
