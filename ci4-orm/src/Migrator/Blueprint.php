@@ -4,7 +4,8 @@ namespace Ci4ORM\Migrator;
 
 use Config\Database as DatabaseCi4;
 
-class Blueprint {
+class Blueprint
+{
     private $forge;
 
     public $table;
@@ -22,7 +23,8 @@ class Blueprint {
      * @param  string|null  $column (default: id)
      * @return Ci4ORM\Migrator\Column
      */
-    public function id(string $column = 'id'): Column {
+    public function id(string $column = 'id'): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'INT',
@@ -42,7 +44,8 @@ class Blueprint {
      * @param  int|null  $length (default: 1)
      * @return Ci4ORM\Migrator\Column
      */
-    public function char($column, $length = 1): Column {
+    public function char($column, $length = 1): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'CHAR',
@@ -58,7 +61,8 @@ class Blueprint {
      * @param  int|null  $length
      * @return Ci4ORM\Migrator\Column
      */
-    public function string(string $column, ?int $length = 255): Column {
+    public function string(string $column, ?int $length = 255): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'VARCHAR',
@@ -74,7 +78,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function tinyText($column): Column {
+    public function tinyText($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TINYTEXT'
@@ -89,7 +94,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function text($column): Column {
+    public function text($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TEXT'
@@ -104,7 +110,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function mediumText($column): Column {
+    public function mediumText($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'MEDIUMTEXT'
@@ -119,7 +126,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function longText($column): Column {
+    public function longText($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'LONGTEXT'
@@ -136,7 +144,8 @@ class Blueprint {
      * @param  bool|null  $unsigned (default: false)
      * @return Ci4ORM\Migrator\Column
      */
-    public function integer($column, $autoIncrement = false, $unsigned = false): Column {
+    public function integer($column, $autoIncrement = false, $unsigned = false): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'INT',
@@ -155,7 +164,8 @@ class Blueprint {
      * @param  bool|null  $unsigned (default: false)
      * @return Ci4ORM\Migrator\Column
      */
-    public function tinyInteger($column, $autoIncrement = false, $unsigned = false): Column {
+    public function tinyInteger($column, $autoIncrement = false, $unsigned = false): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TINYINT',
@@ -174,7 +184,8 @@ class Blueprint {
      * @param  bool|null  $unsigned (default: false)
      * @return Ci4ORM\Migrator\Column
      */
-    public function smallInteger($column, $autoIncrement = false, $unsigned = false):Column {
+    public function smallInteger($column, $autoIncrement = false, $unsigned = false): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'SMALLINT',
@@ -185,7 +196,7 @@ class Blueprint {
         return $columns;
     }
 
-        /**
+    /**
      * Create a new medium integer (3-byte) column on the table.
      *
      * @param  string  $column
@@ -193,7 +204,8 @@ class Blueprint {
      * @param  bool|null  $unsigned (default: false)
      * @return Ci4ORM\Migrator\Column
      */
-    public function mediumInteger($column, $autoIncrement = false, $unsigned = false): Column {
+    public function mediumInteger($column, $autoIncrement = false, $unsigned = false): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'MEDIUMINT',
@@ -212,7 +224,8 @@ class Blueprint {
      * @param  bool|null  $unsigned (default: false)
      * @return Ci4ORM\Migrator\Column
      */
-    public function bigInteger($column, $autoIncrement = false, $unsigned = false): Column {
+    public function bigInteger($column, $autoIncrement = false, $unsigned = false): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'BIGINT',
@@ -229,7 +242,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function float($column): Column {
+    public function float($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'FLOAT'
@@ -244,7 +258,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function double($column): Column {
+    public function double($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'DOUBLE'
@@ -261,7 +276,8 @@ class Blueprint {
      * @param  int|null  $places (default: 2)
      * @return Ci4ORM\Migrator\Column
      */
-    public function decimal($column, $total = 8, $places = 2): Column {
+    public function decimal($column, $total = 8, $places = 2): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'DECIMAL',
@@ -277,7 +293,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function boolean($column): Column {
+    public function boolean($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'BOOLEAN'
@@ -293,7 +310,8 @@ class Blueprint {
      * @param  array  $allowed
      * @return Ci4ORM\Migrator\Column
      */
-    public function enum($column, $allowed): Column {
+    public function enum($column, $allowed): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'ENUM',
@@ -310,7 +328,8 @@ class Blueprint {
      * @param  array  $allowed
      * @return Ci4ORM\Migrator\Column
      */
-    public function set($column, $allowed): Column {
+    public function set($column, $allowed): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'SET',
@@ -326,7 +345,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function json($column): Column {
+    public function json($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'JSON'
@@ -341,7 +361,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function jsonb($column): Column {
+    public function jsonb($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'JSONB'
@@ -356,7 +377,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function date($column): Column {
+    public function date($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'DATE'
@@ -372,7 +394,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function dateTime($column, $precision = null): Column {
+    public function dateTime($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'DATETIME',
@@ -389,7 +412,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function dateTimeTz($column, $precision = null): Column {
+    public function dateTimeTz($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TIMESTAMPTZ',
@@ -406,7 +430,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function time($column, $precision = null): Column {
+    public function time($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TIME',
@@ -423,7 +448,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function timeTz($column, $precision = null): Column {
+    public function timeTz($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TIMETZ',
@@ -440,7 +466,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function timestamp($column, $precision = null): Column {
+    public function timestamp($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TIMESTAMP',
@@ -457,7 +484,8 @@ class Blueprint {
      * @param  int|null  $precision (default: null)
      * @return Ci4ORM\Migrator\Column
      */
-    public function timestampTz($column, $precision = null): Column {
+    public function timestampTz($column, $precision = null): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'TIMESTAMPTZ',
@@ -472,14 +500,15 @@ class Blueprint {
      *
      * @param  int|null  $precision (default: null)
      */
-    public function timestamps($precision = null) {
+    public function timestamps($precision = null)
+    {
         $this->field['created_at'] = [
             'type' => 'TIMESTAMP',
             'precision' => $precision,
             'null' => true,
             'default' => null
         ];
-        
+
         $this->field['updated_at'] = [
             'type' => 'TIMESTAMP',
             'precision' => $precision,
@@ -493,7 +522,8 @@ class Blueprint {
      *
      * @param  int|null  $precision (default: null)
      */
-    public function timestampsTz($precision = null) {
+    public function timestampsTz($precision = null)
+    {
         $this->field['created_at'] = [
             'type' => 'TIMESTAMPTZ',
             'precision' => $precision,
@@ -514,7 +544,8 @@ class Blueprint {
      *
      * @param  int|null  $precision (default: null)
      */
-    public function datetimes($precision = null) {
+    public function datetimes($precision = null)
+    {
         $this->field['created_at'] = [
             'type' => 'DATETIME',
             'precision' => $precision,
@@ -536,7 +567,8 @@ class Blueprint {
      * @param  string|null  $column (default: 'deleted_at')
      * @param  int|null  $precision (default: null)
      */
-    public function softDeletes($column = 'deleted_at', $precision = null) {
+    public function softDeletes($column = 'deleted_at', $precision = null)
+    {
         $this->timestamp($column, $precision)->nullable();
     }
 
@@ -546,7 +578,8 @@ class Blueprint {
      * @param  string|null  $column (default: 'deleted_at')
      * @param  int|null  $precision (default: null)
      */
-    public function softDeletesTz($column = 'deleted_at', $precision = null) {
+    public function softDeletesTz($column = 'deleted_at', $precision = null)
+    {
         $this->timestampTz($column, $precision)->nullable();
     }
 
@@ -556,7 +589,8 @@ class Blueprint {
      * @param  string|null  $column (default: 'deleted_at')
      * @param  int|null  $precision (default: null)
      */
-    public function softDeletesDatetime($column = 'deleted_at', $precision = null) {
+    public function softDeletesDatetime($column = 'deleted_at', $precision = null)
+    {
         $this->dateTime($column, $precision)->nullable();
     }
 
@@ -566,7 +600,8 @@ class Blueprint {
      * @param  string  $column
      * @return Ci4ORM\Migrator\Column
      */
-    public function year($column): Column {
+    public function year($column): Column
+    {
         $columns = new Column($column, $this);
         $this->field[$column] = [
             'type' => 'YEAR'
@@ -575,7 +610,45 @@ class Blueprint {
         return $columns;
     }
 
-    public function execute() {
+    /**
+     * Create a new binary column on the table.
+     *
+     * @param  string  $column
+     * @param  int|null  $length (default: null)
+     * @param  bool|null  $fixed (default: false)
+     * @return Ci4ORM\Migrator\Column
+     */
+    public function binary($column, $length = null, $fixed = false): Column
+    {
+        $columns = new Column($column, $this);
+        $this->field[$column] = [
+            'type' => $fixed ? 'BINARY' : 'VARBINARY',
+            'constraint' => $length ?? 255,
+            'null'       => false,
+        ];
+
+        return $columns;
+    }
+
+    /**
+     * Create a new UUID column on the table.
+     *
+     * @param  string  $column
+     * @return Ci4ORM\Migrator\Column
+     */
+    public function uuid($column = 'uuid'): Column
+    {
+        $columns = new Column($column, $this);
+        $this->field[$column] = [
+            'type' => 'CHAR',
+            'constraint' => 36
+        ];
+
+        return $columns;
+    }
+
+    public function execute()
+    {
         $this->forge->addField($this->field);
         $this->forge->createTable($this->table);
     }
