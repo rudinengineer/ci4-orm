@@ -1,5 +1,6 @@
 {
   "name": "rudinengineer/ci4-orm",
+  "license": "MIT",
   "description": "Simple CI4 ORM",
   "autoload": {
     "psr-4": {
