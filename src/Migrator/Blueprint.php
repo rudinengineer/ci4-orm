@@ -33,6 +33,7 @@ class Blueprint
             'auto_increment' => true,
             'primary_key' => true
         ];
+        $this->forge->addPrimaryKey('id');
 
         return $columns;
     }
